@@ -1,0 +1,35 @@
+
+Ana Sayfa (Home Page):
+ASP.NET Core MVC  gibi bir web frameworkü kullanarak, bir Ana Sayfa Controller'ı oluşturulur. Bu sayfa, projenin ana özelliklerini ve genel içeriğini sunar.
+
+Hakkında Sayfası (About Page):
+Benzer şekilde, bir About Controller oluşturulur. Bu sayfa projeyi ve şirketi tanıtan bilgileri içerir. 
+Misyon, vizyon gibi bilgiler statik olarak yerleştirilebilir veya veritabanından dinamik olarak çekilebilir.
+
+İletişim Sayfası (Contact Page):
+Bir Contact Controller oluşturulut. Bu sayfa kullanıcıların projeyle iletişime geçebileceği bir iletişim formu veya iletişim bilgileri içerir.
+
+Ürün/Hizmet Sayfaları:
+Her ürün veya hizmet için bir Controller oluşturulur. Bu sayfalarda ürün veya hizmetin detaylı açıklaması, görselleri ve fiyatı gibi bilgiler yer alır.
+Veritabanından ürün veya hizmet bilgileri çekilerek dinamik olarak oluşturulabilir.
+
+Kullanıcı Profili Sayfası:
+Bir Profile Controller oluşturulur. Bu sayfada kullanıcıların hesap bilgilerini görüntüleyebilecekleri veya düzenleyebilecekleri bir arayüz sunulur.
+Kullanıcı adı, e-posta, şifre gibi bilgiler veritabanından çekilerek veya kullanıcı giriş yaptıktan sonra oturum verilerinden alınarak gösterilir.
+
+Kayıt Sayfası (Register Page) ve Giriş Sayfası (Login Page):
+Bu sayfalar için bir Register Controller ve bir Login Controller oluşturulur.
+Kullanıcıların kayıt olabilmesi ve giriş yapabilmesi için gerekli formlar ve işlemler burada yer alır.
+
+Yönetim Paneli (Admin Panel):
+Yetkilendirilmiş kullanıcılar için bir Admin Controller oluşturulur. Burada içerik yönetimi veya kullanıcı yönetimi gibi işlevler bulunur. 
+Yetkilendirme ve kimlik doğrulama işlemleri için ASP.NET Core Identity gibi bir kimlik doğrulama sistemi kullanılır.
+
+Diğer Sayfalar (Gelen Kutusu, Favori İlanlar, Yeni İlan Oluştur, İlanlarıma Gözat):
+Bu sayfalar da benzer şekilde Controller'lar kullanılarak oluşturulur.
+Her biri belirli bir işlevi yerine getirir ve kullanıcıların etkileşimde bulunabileceği arayüzler sağlar.
+Ayrıntılı olarak şu şekildedir;
+     Gelen Kutusu : Siteden gelen bilgilendirme mesajları vb. bildirimler.
+     Favori İlanlar :Kullanıcının favroi ilanlarını görebildiği sayfa.
+     Yeni İlan Oluştur : Kullanıcının yeni ilan oluşturabileceği sayfa.
+     İlanlarıma Gözat : Kullanıcının oluşturduğu ilanları görüntüleyip düzenleyebileceği sayfa.
