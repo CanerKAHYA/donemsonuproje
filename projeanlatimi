@@ -1,13 +1,52 @@
-Proje Konusu : Küçükbaş hayvan alım satım.
+Proje Konusu: Avcılık Bilgi Platformu
 
-Proje Amacı : Küçükbaş hayvan sahiplerinin  ya da hayvan satın almak isteyenlerin güvenle alışveriş yapabileceği bir site.
+Proje Amacı: Avcılıkla ilgilenen kişilere avcılıkla ilgili bilgi ve kaynakları sunmak.
 
-Proje Özellikleri :Siteye herhangi bir kullanıcı üç şekilde giriş yapabilir Alıcı,Satıcı,Misafir. Satıcılar siteye temel bilgilerini(Kullanıcı Adı,E-Posta Adresi,Tel. No) girerek hesap oluşturur
-ve siteye filtre bilgilerini girerek ilan açar . Alıcılar ise satıcılar ile aynı şekilde temel bilgilerini girerek hesap açar ve filtre bilgilerini girdikten sonra eşleşen ilanlardaki satıcılarla 
-iletişime geçerek alışveriş yapabilirler.Misafirde temel bilgilerini girmeden sadece filtre bilgilerini girerek eşleşen ilanlara göz atabilir ancak satıcılarla iletişime geçemez.
+Proje Özellikleri:
 
-Satıcı,Alıcı ve Misafir kullanıcıları için istenen filtre bilgileri şunlardır;
+Kullanıcı Rolleri:
 
- Alıcı : Alınıcak olan Hayvanın Fiyatı,Türü,Cinsiyeti,Yaşı,Yetiştiği Bölge,Alınış Amacı,Konumu,Toplu Satış(Var,Yok).
- Satıcı : Satılacak olan Hayvanın Fiyatı,Türü,Cinsiyeti,Yaşı,Yetiştiği Bölge,Satılış Amacı,Konumu,Toplu Satış(Var,Yok).
- Misafir : Hayvanın Fiyatı,Türü,Cinsiyeti,Yaşı,Yetiştiği Bölge,Konumu,Toplu Satış(Var,Yok).
+Üye Kullanıcılar: Siteye üye olan ve belirli avantajlardan yararlanabilen kullanıcılar.
+Misafir Kullanıcılar: Siteye üye olmayan kullanıcılar.
+Üyelik ve Giriş:
+
+Kullanıcılar, siteye kayıt olarak üyelik oluşturabilirler.
+Üyeler, kullanıcı adı ve parola ile giriş yapabilirler.
+Misafir kullanıcılar, siteyi gezebilir ancak üye olmadan site içeriğine erişim sağlayamazlar.
+Avcılık İçeriği:
+
+Makaleler ve Rehberler: Avcılıkla ilgili makaleler, rehberler ve kılavuzlar sunulabilir. Örneğin, avlanma teknikleri, avlanma bölgeleri, avcılık ekipmanları hakkında bilgiler.
+Videolar: Avcılıkla ilgili eğitici ve bilgilendirici videolar paylaşılabilir.
+Haberler: Avcılık dünyasından güncel haberler ve etkinlikler hakkında bilgi verilebilir.
+
+Galeri ve Fotoğraf Paylaşımı:
+
+Kullanıcılar, avlanma deneyimlerini ve avladıkları avları paylaşabilecekleri bir galeriye erişebilirler.
+Fotoğraf paylaşımı, kullanıcıların avlanma başarılarını ve doğa fotoğraflarını sergileyebilmeleri için teşvik edilebilir.
+Bilgilendirme ve Güvenilir Kaynaklar:
+
+Avcılıkla ilgili yasal düzenlemeler, izinler ve lisanslar hakkında bilgilendirme sağlanabilir.
+Kullanıcılara güvenilir avcılık kaynaklarına erişim sağlanabilir.
+Yazılımsal Özellikler:
+
+Web Tabanlı Uygulama:
+
+ASP.NET Core veya benzeri bir web teknolojisi kullanılarak web tabanlı bir uygulama geliştirilebilir.
+MVC (Model-View-Controller) veya benzeri bir tasarım deseni kullanılarak uygulamanın modüler yapısı sağlanabilir.
+Veritabanı ve Veri Yönetimi:
+
+Veritabanı olarak, avcılıkla ilgili içeriklerin saklanması için bir ilişkisel veritabanı yönetim sistemi (örneğin, SQL Server, PostgreSQL) kullanılabilir.
+Entity Framework Core veya benzeri bir ORM (Object-Relational Mapping) aracı kullanılarak veritabanı işlemleri yönetilebilir.
+Kullanıcı Yönetimi ve Yetkilendirme:
+
+Kullanıcıların kaydolması, giriş yapması ve hesap yönetimi işlemleri sağlanabilir.
+ASP.NET Core Identity veya benzeri bir kimlik doğrulama ve yetkilendirme sistemi kullanılarak kullanıcı yönetimi sağlanabilir.
+Arayüz Tasarımı ve Kullanılabilirlik:
+
+Kullanıcı dostu bir arayüz tasarlanabilir.
+Bootstrap veya benzeri bir CSS framework'ü kullanılarak arayüzün responsif ve estetik bir şekilde tasarlanması sağlanabilir.
+Veri Görselleştirme:
+
+Grafikler, tablolar ve diğer veri görselleştirme araçları kullanılarak avcılık istatistikleri ve trendleri görsel olarak sunulabilir.
+JavaScript kütüphaneleri (örneğin, Chart.js, D3.js) kullanılarak interaktif grafikler oluşturulabilir.
+
