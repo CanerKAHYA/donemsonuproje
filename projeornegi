@@ -1,35 +1,28 @@
+Anasayfa:
 
-Ana Sayfa (Home Page):
-ASP.NET Core MVC  gibi bir web frameworkü kullanarak, bir Ana Sayfa Controller'ı oluşturulur. Bu sayfa, projenin ana özelliklerini ve genel içeriğini sunar.
+Avcılıkla ilgili genel bilgilerin ve en popüler içeriğin bulunduğu ana sayfa.
+İlgili makalelerin, videoların ve haberlerin yer aldığı bir bölüm.
 
-Hakkında Sayfası (About Page):
-Benzer şekilde, bir About Controller oluşturulur. Bu sayfa projeyi ve şirketi tanıtan bilgileri içerir. 
-Misyon, vizyon gibi bilgiler statik olarak yerleştirilebilir veya veritabanından dinamik olarak çekilebilir.
+Makaleler ve Rehberler Sayfası:
 
-İletişim Sayfası (Contact Page):
-Bir Contact Controller oluşturulut. Bu sayfa kullanıcıların projeyle iletişime geçebileceği bir iletişim formu veya iletişim bilgileri içerir.
+Avcılıkla ilgili detaylı makalelerin ve rehberlerin bulunduğu sayfa.
+Farklı kategorilere ayrılmış makaleler ve rehberler.
+Video Galerisi:
 
-Ürün/Hizmet Sayfaları:
-Her ürün veya hizmet için bir Controller oluşturulur. Bu sayfalarda ürün veya hizmetin detaylı açıklaması, görselleri ve fiyatı gibi bilgiler yer alır.
-Veritabanından ürün veya hizmet bilgileri çekilerek dinamik olarak oluşturulabilir.
+Avcılıkla ilgili eğitici ve bilgilendirici videoların bulunduğu sayfa.
+Videoların kategorilere göre düzenlendiği bir arayüz.
+Haberler ve Duyurular Sayfası:
 
-Kullanıcı Profili Sayfası:
-Bir Profile Controller oluşturulur. Bu sayfada kullanıcıların hesap bilgilerini görüntüleyebilecekleri veya düzenleyebilecekleri bir arayüz sunulur.
-Kullanıcı adı, e-posta, şifre gibi bilgiler veritabanından çekilerek veya kullanıcı giriş yaptıktan sonra oturum verilerinden alınarak gösterilir.
+Avcılıkla ilgili güncel haberlerin ve etkinlik duyurularının bulunduğu sayfa.
+Haberlerin tarihe göre sıralandığı bir liste.
+Forum ve Tartışma Sayfası:
 
-Kayıt Sayfası (Register Page) ve Giriş Sayfası (Login Page):
-Bu sayfalar için bir Register Controller ve bir Login Controller oluşturulur.
-Kullanıcıların kayıt olabilmesi ve giriş yapabilmesi için gerekli formlar ve işlemler burada yer alır.
 
-Yönetim Paneli (Admin Panel):
-Yetkilendirilmiş kullanıcılar için bir Admin Controller oluşturulur. Burada içerik yönetimi veya kullanıcı yönetimi gibi işlevler bulunur. 
-Yetkilendirme ve kimlik doğrulama işlemleri için ASP.NET Core Identity gibi bir kimlik doğrulama sistemi kullanılır.
 
-Diğer Sayfalar (Gelen Kutusu, Favori İlanlar, Yeni İlan Oluştur, İlanlarıma Gözat):
-Bu sayfalar da benzer şekilde Controller'lar kullanılarak oluşturulur.
-Her biri belirli bir işlevi yerine getirir ve kullanıcıların etkileşimde bulunabileceği arayüzler sağlar.
-Ayrıntılı olarak şu şekildedir;
-     Gelen Kutusu : Siteden gelen bilgilendirme mesajları vb. bildirimler.
-     Favori İlanlar :Kullanıcının favroi ilanlarını görebildiği sayfa.
-     Yeni İlan Oluştur : Kullanıcının yeni ilan oluşturabileceği sayfa.
-     İlanlarıma Gözat : Kullanıcının oluşturduğu ilanları görüntüleyip düzenleyebileceği sayfa.
+Kullanıcı Profili ve Hesap Yönetimi:
+
+Kullanıcıların kaydolduğu, giriş yaptığı ve hesaplarını yönettiği sayfa.
+Profil bilgilerinin güncellendiği ve hesap ayarlarının yapıldığı bir arayüz.
+Diğer KUllanıcılar:
+
+Kullanıcıların diğer kullanıcıların hesaplarının içeriğini görebildiği sayfa
