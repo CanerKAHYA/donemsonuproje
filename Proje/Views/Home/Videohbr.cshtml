@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video ve Haber Sayfası</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.scss">
+    <link rel="stylesheet" href="/css/style.css.map">
+
+    <style>
+        body {
+            background: linear-gradient(to left, rgb(0, 73, 0), rgb(10, 104, 10)); /* Sağ taraftan pembe ve sol tarafa mor geçiş */
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.1); /* Yarı şeffaf arka plan */
+            padding: 20px;
+            border-radius: 10px;
+        }
+       
+        .btn-switch {
+            margin-bottom: 20px;
+        }
+        .video-container, .news-container {
+            display: none;
+        }
+        .video-container.active, .news-container.active {
+            display: block;
+        }
+        .thumbnail-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .thumbnail-container img {
+            max-width: 100px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .thumbnail-container .active-thumbnail {
+            transform: scale(1.2);
+            border: 2px solid white;
+        }
+        .thumbnail-container .prev, .thumbnail-container .next {
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        .video-large, .news-large {
+            text-align: center;
+        }
+        .video-large img, .news-large img {
+            max-width: 100%;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .btn-primary, .btn-secondary {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: none;
+        }
+        h2{
+            color: black;
+        }
+    img{
+        color: black;
+    }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="btn-switch">
+        <button id="btnVideos" class="btn btn-primary">Videolar</button>
+        <button id="btnNews" class="btn btn-secondary">Haberler</button>
+    </div>
+
+    <!-- Video Section -->
+   <div id="videoSection" class="video-container active">
+    <div class="video-large">
+        <a id="videoLink"  target="_blank">
+            <img id="videoLargeImage" src="/images/avtufeg.jpg" alt="Large Video">
+            <h2 id="videoLargeTitle">Video Başlığı 1-Gitmek İçin Tıklayın</h2>
+        </a>
+    </div>
+    <div class="thumbnail-container">
+        <span class="prev" onclick="showPrevVideo()">❮</span>
+        <img id="thumb1" src="/images/avtufeg.jpg" alt="Video Thumbnail 1" onclick="showVideo(0)">
+        <img id="thumb2" src="/images/domuzav.jpg" alt="Video Thumbnail 2" onclick="showVideo(1)">
+        <img id="thumb3" src="/images/keklikav.jpg" alt="Video Thumbnail 3" onclick="showVideo(2)">
+        
+        <span class="next" onclick="showNextVideo()">❯</span>
+    </div>
+</div>
+
+    <!-- News Section -->
+    <div id="newsSection" class="news-container">
+        <div class="news-large">
+            <img id="newsLargeImage" src="https://c4.wallpaperflare.com/wallpaper/39/346/426/digital-art-men-city-futuristic-night-hd-wallpaper-preview.jpg" alt="Large News">
+            <h2 id="newsLargeTitle">Haber Başlığı 1</h2>
+        </div>
+        <div class="thumbnail-container">
+            <span class="prev" onclick="showPrevNews()">❮</span>
+            <img id="newsThumb1" src="https://c4.wallpaperflare.com/wallpaper/39/346/426/digital-art-men-city-futuristic-night-hd-wallpaper-preview.jpg" alt="News Thumbnail 1" onclick="showNews(0)">
+            <img id="newsThumb2" src="https://c4.wallpaperflare.com/wallpaper/910/24/10/night-artwork-futuristic-city-cyberpunk-wallpaper-preview.jpg" alt="News Thumbnail 2" onclick="showNews(1)">
+            <img id="newsThumb3" src="https://c4.wallpaperflare.com/wallpaper/924/734/541/night-artwork-futuristic-city-cyberpunk-wallpaper-preview.jpg" alt="News Thumbnail 3" onclick="showNews(2)">
+            <span class="next" onclick="showNextNews()">❯</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript Kodu
+document.getElementById('videoLargeImage').addEventListener('click', function() {
+    var currentVideoIndex = getCurrentVideoIndex();
+    var videoUrl = getVideoUrl(currentVideoIndex);
+    goToLink(videoUrl);
+});
+
+const videoLinks = [
+    "https://www.youtube.com/watch?v=5tPT7xi7AUk&pp=ygUOYXYgYmHFn2xhbmfEsWM%3D",
+    "https://www.youtube.com/watch?v=apEfeTjKaEc&pp=ygUKZG9tdXogYXbEsQ%3D%3D",
+    "https://www.youtube.com/watch?v=hP85ItXISh8&pp=ygULa2VrbGlrIGF2xLE%3D"
+    
+];
+function getCurrentVideoIndex() {
+    return currentVideoIndex;
+}
+function getVideoUrl(index) {
+    return videoLinks[index];
+}
+
+    // JavaScript fonksiyonları buraya
+    function goToLink(url) {
+        window.open(url, '_blank');
+    }
+
+  
+    const videos = [
+        { src: '/images/avtufeg.jpg', title: 'Video Başlığı 1-Gitmek İçin Tıklayın' },
+        { src: '/images/domuzav.jpg', title: 'Video Başlığı 2-Gitmek İçin Tıklayın' },
+        { src: '/images/keklikav.jpg', title: 'Video Başlığı 3-Gitmek İçin Tıklayın' }
+    ];
+
+    const news = [
+        { src: 'https://c4.wallpaperflare.com/wallpaper/39/346/426/digital-art-men-city-futuristic-night-hd-wallpaper-preview.jpg', title: 'Haber Başlığı 1' },
+        { src: 'https://c4.wallpaperflare.com/wallpaper/910/24/10/night-artwork-futuristic-city-cyberpunk-wallpaper-preview.jpg', title: 'Haber Başlığı 2' },
+        { src: 'https://c4.wallpaperflare.com/wallpaper/924/734/541/night-artwork-futuristic-city-cyberpunk-wallpaper-preview.jpg', title: 'Haber Başlığı 3' }
+    ];
+
+    let currentVideoIndex = 0;
+    let currentNewsIndex = 0;
+
+    document.getElementById('btnVideos').addEventListener('click', function () {
+        document.getElementById('videoSection').classList.add('active');
+        document.getElementById('newsSection').classList.remove('active');
+    });
+
+    document.getElementById('btnNews').addEventListener('click', function () {
+        document.getElementById('newsSection').classList.add('active');
+        document.getElementById('videoSection').classList.remove('active');
+    });
+
+    function showVideo(index) {
+        currentVideoIndex = index;
+        updateVideo();
+    }
+
+    function showNews(index) {
+        currentNewsIndex = index;
+        updateNews();
+    }
+
+    function showPrevVideo() {
+        currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+        updateVideo();
+    }
+
+    function showNextVideo() {
+        currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+        updateVideo();
+    }
+
+    function showPrevNews() {
+        currentNewsIndex = (currentNewsIndex - 1 + news.length) % news.length;
+        updateNews();
+    }
+
+    function showNextNews() {
+        currentNewsIndex = (currentNewsIndex + 1) % news.length;
+        updateNews();
+    }
+
+    function updateVideo() {
+        const largeImage = document.getElementById('videoLargeImage');
+        largeImage.style.opacity = 0;
+        setTimeout(() => {
+            largeImage.src = videos[currentVideoIndex].src;
+            document.getElementById('videoLargeTitle').innerText = videos[currentVideoIndex].title;
+            largeImage.style.opacity = 1;
+        }, 500);
+        updateThumbnails();
+    }
+
+    function updateNews() {
+        const largeImage = document.getElementById('newsLargeImage');
+        largeImage.style.opacity = 0;
+        setTimeout(() => {
+            largeImage.src = news[currentNewsIndex].src;
+            document.getElementById('newsLargeTitle').innerText = news[currentNewsIndex].title;
+            largeImage.style.opacity = 1;
+        }, 500);
+        updateThumbnails();
+    }
+
+    function updateThumbnails() {
+        document.querySelectorAll('.thumbnail-container img').forEach(img => {
+            img.classList.remove('active-thumbnail');
+        });
+        document.getElementById(`thumb${currentVideoIndex + 1}`).classList.add('active-thumbnail');
+        document.getElementById(`newsThumb${currentNewsIndex + 1}`).classList.add('active-thumbnail');
+    }
+
+    // Otomatik video değişimi
+    setInterval(showNextVideo, 7000);
+setInterval(showNextNews, 7000);
+    // Eğer isterseniz, haber kapaklarının da otomatik değişmesini sağlamak için aşağıdaki satırı aktif hale getirin.
+    // setInterval(showNextNews, 5000);
+
+    // İlk güncellemeleri yap
+    updateVideo();
+    updateNews();
+</script>
+
+</body>
+ <script src="/js/jquery-3.4.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+  <script src="/js/custom.js"></script>
+</html>

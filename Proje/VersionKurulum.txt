@@ -1,0 +1,18 @@
+
+dotnet tool install --global dotnet-ef 
+dotnet add package Microsoft.EntityFrameworkCore 
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer 
+dotnet add package Microsoft.Data.SqlClient 
+dotnet add package Microsoft.EntityFrameworkCore.Design 
+
+
+sayfa 271 : 6.9.3. Entity Framework Core DbSet Özelliği
+sayfa 272 : 6.adım dahil
+
+dotnet ef migrations add birinci
+dotnet ef database update
+
+dotnet remove "dotnetEntityFramework.csproj" package "Microsoft.EntityFrameworkCore"
+<img id="thumb1" src="https://cdn.mos.cms.futurecdn.net/ou37FZDaqYfEQfVy3TQu7J-650-80.jpg.webp" alt="Video Thumbnail 1" onclick="goToLink('https://www.youtube.com/watch?v=qDulVLg2a0Y')">
+            <img id="thumb2" src="https://cdn.vox-cdn.com/thumbor/h_AlVJ0rYSokqfmi6A76l3kwiFc=/0x0:3840x2160/1820x1024/filters:focal(1266x298:1880x912):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/68471025/ss_ae4465fa8a44dd330dbeb7992ba196c2f32cabb1.0.jpg" alt="Video Thumbnail 2" onclick="goToLink('https://www.youtube.com/watch?v=1mLIdD44XSw')">
+            <img id="thumb3" src="https://cdn.mos.cms.futurecdn.net/UcXeK6DWKBWdc3Ao4TZ9nU-768-80.jpg.webp" alt="Video Thumbnail 3" onclick="goToLink('https://www.youtube.com/watch?v=nJKP8_BUrJ0')">

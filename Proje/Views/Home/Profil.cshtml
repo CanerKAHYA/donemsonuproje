@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @model User
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Sayfası</title>
+    <link rel="stylesheet" href="/css/profil.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/style.css.map">
+    <link rel="stylesheet" href="/css/style.scss">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+    <link rel="stylesheet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
+</head>
+<body>
+    <div class="row py-5 px-4">
+        <div class="col-md-5 mx-auto">
+            <!-- Profile widget -->
+            <div class="bg-white shadow rounded overflow-hidden">
+                <div class="px-4 pt-0 pb-4 cover">
+                    <div class="media align-items-end profile-head">
+                        <div class="profile mr-3" >
+           @if (!string.IsNullOrEmpty(Model.PhotoPath))
+        {
+            <img src="@Model.PhotoPath" alt="Profile Photo" class="img-thumbnail" width="150" />
+        }
+        else
+        {
+            <img src="/images/defaultpp.png" alt="Default Profile Photo" class="img-thumbnail" width="150" />
+        }
+                            <a href="@Url.Action("EditProfile", "Home")" class="btn btn-outline-dark btn-sm btn-block">Profili Düzenle</a>
+                        </div>
+                        <div class="media-body mb-5 text-white">
+                            <h4 class="mt-0 mb-0">@Model.Username</h4>
+                                <p class="small mb-4">
+                                    <i class="fas fa-map-marker-alt mr-2"></i>@Model.Email
+                                </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-light p-4 d-flex justify-content-end text-center">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <h5 class="font-weight-bold mb-0 d-block">215</h5>
+                            <small class="text-muted">
+                                <i class="fas fa-image mr-1"></i>Photos
+                            </small>
+                        </li>
+                        <li class="list-inline-item">
+                            <h5 class="font-weight-bold mb-0 d-block">745</h5>
+                            <small class="text-muted">
+                                <i class="fas fa-user mr-1"></i>Followers
+                            </small>
+                        </li>
+                        <li class="list-inline-item">
+                            <h5 class="font-weight-bold mb-0 d-block">340</h5>
+                            <small class="text-muted">
+                                <i class="fas fa-user mr-1"></i>Following
+                            </small>
+                        </li>
+                    </ul>
+                </div>
+               <div class="px-4 py-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">About</h5>
+                        <button id="editAboutButton" class="btn btn-outline-dark btn-sm">Düzenle</button>
+                    </div>
+                    <div class="p-4 rounded shadow-sm bg-light" id="aboutContent">
+                        <p class="font-italic mb-0">@Model.Occupation</p>
+                        <p class="font-italic mb-0">@Model.Location</p>
+                        <p class="font-italic mb-0">@Model.Hobby</p>
+                    </div>
+                    <div class="p-4 rounded shadow-sm bg-light" id="aboutEditForm" style="display: none;">
+                        <form id="aboutForm" method="post">
+                            <input type="hidden" id="userId" value="@Model.Id" />
+                            <div class="form-group">
+                                <label for="occupation">Occupation</label>
+                                <input type="text" class="form-control" id="occupation" value="@Model.Occupation">
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <input type="text" class="form-control" id="location" value="@Model.Location">
+                            </div>
+                            <div class="form-group">
+                                <label for="hobby">Hobby</label>
+                                <input type="text" class="form-control" id="hobby" value="@Model.Hobby">
+                            </div>
+                            <button type="button" class="btn btn-primary" id="saveAboutButton">Kaydet</button>
+                            <button type="button" class="btn btn-secondary" id="cancelAboutButton">İptal</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="py-4 px-4">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h5 class="mb-0">Paylaşılan Fotoğraflar</h5>
+                        <a href="#" class="btn btn-link text-muted">Düzenle</a>
+                    </div>
+                    <form asp-action="UploadPhoto" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input type="file" name="photo" class="form-control-file">
+                        </div>
+                        <input type="hidden" name="userId" value="@Model.Id">
+                        <button type="submit" class="btn btn-primary mt-2">Fotoğraf Yükle</button>
+                    </form>
+                    <div class="row mt-3">
+                        @foreach (var item in Model.Photos)
+                        {
+                            <div class="col-lg-6 mb-2 pr-lg-1">
+                                    <img src="@item.PhotoPath" alt="" class="img-fluid rounded shadow-sm">
+                                    <form asp-action="DeletePhoto" method="post">
+                                        <input type="hidden" name="photoId" value="@item.Id">
+                                        <button type="submit" class="btn btn-danger btn-sm mt-2">Sil</button>
+                                    </form>
+                                </div>
+                        }
+                    </div>
+                    <form asp-controller="Home" asp-action="Logout" method="post">
+                        <button type="submit" class="btn-logout btn btn-secondary mt-3">Çıkış Yap</button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+    document.getElementById('editAboutButton').addEventListener('click', function() {
+        document.getElementById('aboutContent').style.display = 'none';
+        document.getElementById('aboutEditForm').style.display = 'block';
+    });
+
+    document.getElementById('cancelAboutButton').addEventListener('click', function() {
+        document.getElementById('aboutContent').style.display = 'block';
+        document.getElementById('aboutEditForm').style.display = 'none';
+    });
+
+    document.getElementById('saveAboutButton').addEventListener('click', function() {
+        var userId = document.getElementById('userId').value;
+        var occupation = document.getElementById('occupation').value;
+        var location = document.getElementById('location').value;
+        var hobby = document.getElementById('hobby').value;
+
+        // Simple client-side update for demonstration purposes
+        document.getElementById('aboutContent').innerHTML = `
+            <p class="font-italic mb-0">${occupation}</p>
+            <p class="font-italic mb-0">${location}</p>
+            <p class="font-italic mb-0">${hobby}</p>
+        `;
+
+        document.getElementById('aboutContent').style.display = 'block';
+        document.getElementById('aboutEditForm').style.display = 'none';
+
+        // Optionally, send the updated data to the server using AJAX
+        // Here is an example using jQuery:
+        $.ajax({
+            url: '@Url.Action("UpdateAbout", "Home")',
+            type: 'POST',
+            data: {
+                userId: userId,
+                occupation: occupation,
+                location: location,
+                hobby: hobby
+            },
+            success: function(response) {
+                // Handle success response
+            },
+            error: function(response) {
+                // Handle error response
+            }
+        });
+    });
+
+    </script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script src="/js/profil.js"></script>
+    <script src="/js/custom.js"></script>
+</body>
+</html>

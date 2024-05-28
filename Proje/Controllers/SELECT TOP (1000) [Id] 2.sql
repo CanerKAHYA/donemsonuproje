@@ -1,0 +1,6 @@
+SELECT TOP (1000) [Id]
+      ,[Username]
+      ,[Email]
+      ,[Password]
+      ,[Role]
+  FROM [ApplicationDb].[dbo].[Users]
